@@ -4,6 +4,7 @@ ssh-add ~/.ssh/do_sandbox
 
 # cheatsheet
 # find text in all subdirectorie: grep -r "pattern"
+# kill processes by name: pkill -9 "php"
 
 # config
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
@@ -39,6 +40,7 @@ ll () {
     today=`date +%Y-%m-%d`
     path='/Users/tadas/Dropbox/Lifelog/'$today'.txt'
     # vim $path
+    touch $path
     open -a TextEdit $path
 }
 
