@@ -45,6 +45,10 @@ ll () {
     open -a TextEdit $path
 }
 
+redis_queue() {
+    redis-cli -h 192.168.53.146 scard $*;
+}
+
 # git
 alias gs='git status'
 alias gstats='git shortlog -sn --since="4 weeks"'
