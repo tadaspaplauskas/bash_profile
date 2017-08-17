@@ -45,9 +45,7 @@ ll () {
     open -a TextEdit $path
 }
 
-redis_queue() {
-    redis-cli -h 192.168.53.146 scard $*;
-}
+alias redis_prod='redis-cli -h 192.168.53.146'
 
 # git
 alias gs='git status'
