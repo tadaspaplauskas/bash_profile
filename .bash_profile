@@ -7,6 +7,7 @@ ssh-add ~/.ssh/do_sandbox
 # kill processes by name: pkill -9 "php"
 
 # config
+export CDPATH="~/Dropbox"
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
@@ -37,12 +38,16 @@ alias projects='cd /Users/tadas/Dropbox/Projects'
 copy_to_clipboard() { cat $1 | pbcopy ; }
 alias clipboard=copy_to_clipboard
 
-ll () {
+today() {
     today=`date +%Y-%m-%d`
     path='/Users/tadas/Dropbox/Lifelog/'$today'.txt'
     # vim $path
     touch $path
     open -a TextEdit $path
+}
+
+g() {
+    grep -r "$*" .;
 }
 
 alias redis-prod='redis-cli -h 192.168.53.146'
