@@ -7,6 +7,7 @@ ssh-add ~/.ssh/do_sandbox
 # kill processes by name: pkill -9 "php"
 
 # config
+export EDITOR=vim
 export CDPATH="~/Dropbox"
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
@@ -51,6 +52,7 @@ g() {
 }
 
 alias redis-prod='redis-cli -h 192.168.53.146'
+alias redis-dev='redis-cli -h 192.168.53.205'
 
 # git
 alias gs='git status'
