@@ -17,12 +17,15 @@ export LOLCOMMITS_DELAY=0
 
 alias ssh-sandbox='ssh tadas@107.170.22.152'
 alias ssh-mlapp='ssh mailerlite@mlapp2'
-alias ssh-mldev='ssh mailerlite@mldev'
+alias ssh-emailer='ssh mailerlite@mldev'
+alias ssh-emailerapi='ssh liteapi@mlapidev'
 alias ssh-mlcron='ssh mailerlite@mlcron2'
 alias ssh-tadasdev='ssh tadas@mldev'
 alias ssh-mlwww='ssh mailer@mlwww'
-alias ssh-mailerlight='ssh mailerlight@mlapidev'
+alias ssh-mailerlight='ssh mailerlight@mldev'
+alias ssh-mailerlightapi='ssh mailerlight@mlapidev'
 alias ssh-mlapiworkers='ssh liteapi@mlapi3'
+alias ssh-mlupdater='ssh mlupdater@mlbg1'
 alias c='php ~/Sites/mailerlite-api/app/console'
 alias cc='./vendor/bin/codecept'
 alias mlapp='cd ~/Sites/mailerlite-app'
@@ -51,6 +54,9 @@ g() {
     grep -r "$*" .;
 }
 
+merge_into() {
+    cat * > $*
+}
 alias redis-prod='redis-cli -h 192.168.53.146'
 alias redis-dev='redis-cli -h 192.168.53.205'
 
