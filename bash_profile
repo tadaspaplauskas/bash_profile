@@ -82,4 +82,8 @@ gt () {
     git tag "$*"; 
     git push --tags; 
 }
-
+release () {
+    git flow release start "$*";
+    git flow release finish "$*" -m "Merge branch release/$*" $*;
+    git push --tags;
+}
