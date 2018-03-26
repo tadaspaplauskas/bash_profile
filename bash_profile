@@ -1,7 +1,3 @@
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/mlapp
-ssh-add ~/.ssh/do_sandbox
-
 # cheatsheet
 # find text in all subdirectorie: grep -r "pattern"
 # kill processes by name: pkill -9 "php"
@@ -36,7 +32,7 @@ alias redis-flush='redis-cli flushall'
 alias phinx='php vendor/bin/phinx'
 alias artisan='php artisan'
 # passion project
-alias pp='cd /Users/tadas/Dropbox/Projects/support-the-creator/app'
+alias pp='cd /Users/tadas/Dropbox/Projects/crawler/app'
 alias projects='cd /Users/tadas/Dropbox/Projects'
 
 copy_to_clipboard() { cat $1 | pbcopy ; }
@@ -83,7 +79,7 @@ gt () {
     git push --tags; 
 }
 release () {
-    git flow release start "$*";
-    git flow release finish "$*" -m "Merge branch release/$*" $*;
-    git push --tags;
+    git flow release start $*
+    git flow release finish $*
+    git push --follow-tags
 }
