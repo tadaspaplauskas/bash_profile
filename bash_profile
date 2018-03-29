@@ -79,7 +79,11 @@ gt () {
     git push --tags; 
 }
 release () {
+    export GIT_MERGE_AUTOEDIT=no # do not open vim for merge message
+    git checkout develop
     git flow release start $*
-    git flow release finish $*
+    git flow release finish -m "$*" $*
     git push --follow-tags
+    git checkout develop
+    unset GIT_MERGE_AUTOEDIT
 }
