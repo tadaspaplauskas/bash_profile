@@ -1,6 +1,10 @@
-# cheatsheet
-# find text in all subdirectorie: grep -r "pattern"
-# kill processes by name: pkill -9 "php"
+if [ -d "$HOME/platform-tools" ] ; then
+     export PATH="$HOME/platform-tools:$PATH"
+ fi
+
+# scripts
+# jump to any often visited directory
+. ~/.bash/z/z.sh
 
 # config
 export EDITOR=vim
@@ -9,69 +13,46 @@ export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -halp'
-export LOLCOMMITS_DELAY=0
+alias ..='cd ..'
+alias weather='curl wttr.in/'
 
-alias laralogs='tail -n 200 -f storage/logs/laravel.log'
-alias ssh-mlapp='ssh mailerlite@mlapp2'
-alias ssh-emailer='ssh mailerlite@mldev'
-alias ssh-emailerapi='ssh liteapi@mlapidev'
-alias ssh-mlcron='ssh mailerlite@mlcron2'
-alias ssh-tadasdev='ssh tadas@mldev'
-alias ssh-mlwww='ssh mailer@mlwww'
-alias ssh-mailerlight='ssh mailerlight@mldev'
-alias ssh-mailerlightapi='ssh mailerlight@mlapidev'
-alias ssh-mlapiworkers='ssh liteapi@mlapi3'
-alias ssh-mlupdater='ssh mlupdater@mlbg1'
-alias c='php ~/Sites/mailerlite-api/app/console'
-alias cc='./vendor/bin/codecept'
-alias mlapp='cd ~/Sites/mailerlite-app'
-alias mlapi='cd ~/Sites/mailerlite-api'
-alias mlsdk='cd ~/Sites/mailerlite-api-v2-php-sdk'
-alias mlwww='cd ~/Sites/mailerlite-www'
-alias mlsender='cd ~/Sites/sender'
-alias mailerlite='cd ~/Sites/mailerlite'
+# php, laravel
+alias phpunit='php vendor/bin/phpunit'
 alias redis-flush='redis-cli flushall'
 alias phinx='php vendor/bin/phinx'
 alias artisan='php artisan'
+alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 
-# passion project
-alias larasearch='cd /Users/tadas/Dropbox/Projects/larasearch'
-alias scrapethat='cd /Users/tadas/Dropbox/Projects/scrapethat'
-alias projects='cd /Users/tadas/Dropbox/Projects'
-
-copy_to_clipboard() { cat $1 | pbcopy ; }
-alias clipboard=copy_to_clipboard
-
+# not using it anymore, but might in the future
 today() {
     today=`date +%Y-%m-%d`
-    path='/Users/tadas/Dropbox/Lifelog/'$today'.txt'
-    # vim $path
+    path='~/Notes/'$today'.txt'
+    # you can just use vim $path here, I'm using TextEdit instead
     touch $path
     open -a TextEdit $path
 }
 
+# find in current directory files (recursive)
 g() {
     grep -r "$*" .;
 }
 
-merge_into() {
-    cat * > $*
-}
-alias redis-prod='redis-cli -h 192.168.53.146'
-alias redis-dev='redis-cli -h 192.168.53.205'
-alias redis-blacklist='redis-cli -h 192.168.53.239'
-
 # git
-alias 'gstats'='git shortlog -sn --since="4 weeks"'
-alias 'gdiff'='git diff -w'
-alias 'grecap'='git log --all --oneline --no-merges --author=tadaspaplauskas@gmail.com'
-alias 'gtoday'='git log --since=00:00:00 --all --no-merges --oneline --author=tadaspaplauskas@gmail.com'
-alias 'grecent'='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
-alias 'ggraph'='git log --all --decorate --oneline --graph';
-alias 'glast'='git diff HEAD~ HEAD'
+alias gstats='git shortlog -sn --since="4 weeks"'
+alias grecap='git log --all --oneline --no-merges --author=tadaspaplauskas@gmail.com'
+alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tadaspaplauskas@gmail.com'
+alias grecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
+alias ggraph='git log --all --decorate --oneline --graph';
+alias glast='git diff HEAD~ HEAD'
+alias gd='git diff'
 gc () {
     git add . ; 
     git commit -m "$*"; 
+}
+gp () {
+    git add . ;
+    git commit -m "$*";
+    git push;
 }
 gt() { 
     git tag "$*"; 
