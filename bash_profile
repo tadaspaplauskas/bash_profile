@@ -54,26 +54,4 @@ gp () {
     git commit -m "$*";
     git push;
 }
-gt() { 
-    git tag "$*"; 
-    git push --tags; 
-}
-release () {
-    if [ $# -eq 0 ]
-    then
-        echo "Please specify release tag"
-        return
-    fi
-
-    export GIT_MERGE_AUTOEDIT=no # do not open vim for merge message
-    git checkout master || return
-    git pull || return
-    git checkout develop || return
-    git pull || return
-    git flow release start $* || return
-    git flow release finish -m "$*" "$*" || return
-    git push --follow-tags || return
-    git checkout develop || return
-    unset GIT_MERGE_AUTOEDIT
-}
 
