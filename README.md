@@ -11,5 +11,5 @@ curl https://raw.githubusercontent.com/tadaspaplauskas/bash_profile/master/setup
 * find text in all subdirectories: `grep -r "pattern"`
 * kill processes by name: `pkill -9 "php"`
 * copy a file or anything to clipboard: `cat file.log | pbcopy`
-
+* find files matching a pattern and delete them recursively: `find . -type f -name '*.txt' -delete`
 

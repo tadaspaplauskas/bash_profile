@@ -4,7 +4,7 @@ if [ -d "$HOME/platform-tools" ] ; then
 
 # scripts
 # jump to any often visited directory
-. ~/.bash/z/z.sh
+. ~/Config/bash/z/z.sh
 
 # config
 export EDITOR=vim
