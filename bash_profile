@@ -49,8 +49,8 @@ alias ggraph='git log --all --decorate --oneline --graph';
 alias glast='git diff HEAD~ HEAD'
 alias gd='git diff'
 gc () {
-    git add . ; 
-    git commit -m "$*"; 
+    git add . ;
+    git commit -m "$*";
 }
 gp () {
     git add . ;
