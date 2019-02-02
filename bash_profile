@@ -17,7 +17,7 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -halp'
 alias ..='cd ..'
 alias weather='curl wttr.in/'
-alias rm='echo "rm is disabled, use trash instead."'
+alias rm='echo "rm is disabled, use trash"'
 
 # php, laravel
 alias phpunit='php vendor/bin/phpunit'
