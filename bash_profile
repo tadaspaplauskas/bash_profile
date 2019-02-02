@@ -26,38 +26,31 @@ alias phinx='php vendor/bin/phinx'
 alias artisan='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 
-# not using it anymore, but might in the future
-index() {
-    root=$HOME'/Index/';
-    file=$root$1
-
-    # no tag supplied, so list all tags
-    if [ -z "$1" ]
-      then
-        # bypass aliases with \
-        \ls -1 $root
-        return
-    fi
-
-    # no value supplied, so just show existing entries for a tag
-    if [ -z "$2" ]
-      then
-        cat $file
-        return
-    fi
-
-    # search for keywords
-    if [ "$1" = "search" ]
-      then
-        #find $root -type f -exec grep $2 {} \;
-        grep $2 $root*
-        return
-    fi
-
+# personal knowledge management (test run, might turn into a project later on)
+brain() {
+    goback=`pwd`
+    root="$HOME/Brain/"
+    file=$1
     today=`date +%Y-%m-%d`
-    echo $today" "$2 >> $file
-    #git add .
-    #git commit -m $1
+
+    cd $root
+
+    if [ -z "$1" ] # no tag supplied, so list all tags
+    then
+        \ls -1 # bypass aliases with \
+    elif [ -z "$2" ] # no value supplied, so just show existing entries for a tag
+    then
+        cat $file
+    elif [ "$1" = "search" ] # search for keywords
+    then
+        grep -i $2 *
+    else
+        echo "$today $2" >> $file
+        git add -A
+        git commit -m $1
+    fi
+
+    cd $goback
 }
 
 # find in current directory files (recursive)
