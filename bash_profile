@@ -27,12 +27,37 @@ alias artisan='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 
 # not using it anymore, but might in the future
-today() {
+index() {
+    root=$HOME'/Index/';
+    file=$root$1
+
+    # no tag supplied, so list all tags
+    if [ -z "$1" ]
+      then
+        # bypass aliases with \
+        \ls -1 $root
+        return
+    fi
+
+    # no value supplied, so just show existing entries for a tag
+    if [ -z "$2" ]
+      then
+        cat $file
+        return
+    fi
+
+    # search for keywords
+    if [ "$1" = "search" ]
+      then
+        #find $root -type f -exec grep $2 {} \;
+        grep $2 $root*
+        return
+    fi
+
     today=`date +%Y-%m-%d`
-    path='~/Notes/'$today'.txt'
-    # you can just use vim $path here, I'm using TextEdit instead
-    touch $path
-    open -a TextEdit $path
+    echo $today" "$2 >> $file
+    #git add .
+    #git commit -m $1
 }
 
 # find in current directory files (recursive)
