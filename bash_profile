@@ -44,7 +44,7 @@ brain() {
     elif [ "$1" = "search" ] # search for keywords
     then
         grep -i $2 *
-    else
+    else # add new entry
         echo "$today $2" >> $file
         git add -A
         git commit -m $1
