@@ -12,46 +12,25 @@ export CDPATH="~"
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
+export LC_ALL=en_US.UTF-8
 
 # misc
 alias ls='ls -halp'
 alias ..='cd ..'
 alias weather='curl wttr.in/'
 alias rm='echo "rm is disabled, use trash"'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias mkdir='mkdir -pv'
+alias watch='watch --color'
 
 # php, laravel
 alias phpunit='php vendor/bin/phpunit'
 alias redis-flush='redis-cli flushall'
 alias phinx='php vendor/bin/phinx'
-alias artisan='php artisan'
+alias a='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
-
-# personal knowledge management (test run, might turn into a project later on)
-brain() {
-    goback=`pwd`
-    root="$HOME/Brain/"
-    file=$1
-    today=`date +%Y-%m-%d`
-
-    cd $root
-
-    if [ -z "$1" ] # no tag supplied, so list all tags
-    then
-        \ls -1 # bypass aliases with \
-    elif [ -z "$2" ] # no value supplied, so just show existing entries for a tag
-    then
-        cat $file
-    elif [ "$1" = "search" ] # search for keywords
-    then
-        grep -i $2 *
-    else # add new entry
-        echo "$today $2" >> $file
-        git add -A
-        git commit -m $1
-    fi
-
-    cd $goback
-}
+alias v='./vessel'
 
 # find in current directory files (recursive)
 g() {
@@ -76,3 +55,7 @@ gp () {
     git push;
 }
 
+# personal knowledge management
+alias about='~/Brain/brain.sh'
+
+export PATH="/usr/local/sbin:$PATH"
