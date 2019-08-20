@@ -31,6 +31,9 @@ alias phinx='php vendor/bin/phinx'
 alias a='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 alias v='./vessel'
+alias rewrite-ssh='kubectl exec -n mailerlite -it mailerlite-app-85d5b9d596-gpjlz sh'
+alias vssh='./vessel exec app bash'
+alias vstopworkers='./vessel exec app supervisorctl stop queuework'
 
 # find in current directory files (recursive)
 g() {
@@ -39,12 +42,13 @@ g() {
 
 # git
 alias gstats='git shortlog -sn --since="4 weeks"'
-alias grecap='git log --all --oneline --no-merges --author=tadaspaplauskas@gmail.com'
-alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tadaspaplauskas@gmail.com'
+alias grecap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
+alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
 alias grecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
 alias ggraph='git log --all --decorate --oneline --graph';
 alias glast='git diff HEAD~ HEAD'
-alias gd='git diff'
+alias gd='git diff -M'
+alias gb='git checkout -b'
 gc () {
     git add . ;
     git commit -m "$*";
