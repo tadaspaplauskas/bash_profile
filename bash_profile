@@ -9,7 +9,8 @@ if [ -d "$HOME/platform-tools" ] ; then
 # config
 export EDITOR=vim
 export CDPATH="~"
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+ export PS1="\[\033[33;1m\]\W\[\033[m\]$ "
+# export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export LC_ALL=en_US.UTF-8
@@ -48,7 +49,7 @@ alias grecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --f
 alias ggraph='git log --all --decorate --oneline --graph';
 alias glast='git diff HEAD~ HEAD'
 alias gd='git diff -M'
-alias gb='git checkout -b'
+alias gbd='git checkout master && git branch -D ' # force
 gc () {
     git add . ;
     git commit -m "$*";
@@ -57,6 +58,10 @@ gp () {
     git add . ;
     git commit -m "$*";
     git push;
+}
+gb () {
+    git checkout -b "$*";
+    git push --set-upstream origin "$*";
 }
 
 # personal knowledge management
