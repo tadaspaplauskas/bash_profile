@@ -37,11 +37,12 @@ alias vssh='./vessel exec app bash'
 alias vstopworkers='./vessel exec app supervisorctl stop queuework'
 
 # find in current directory files (recursive)
-g() {
+gr() {
     grep -r "$*" .;
 }
 
 # git
+alias gs='git status'
 alias gstats='git shortlog -sn --since="4 weeks"'
 alias grecap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
 alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
