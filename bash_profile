@@ -31,14 +31,20 @@ alias redis-flush='redis-cli flushall'
 alias phinx='php vendor/bin/phinx'
 alias a='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
+alias lararefresh='v composer install && v npm install && v npm run dev && v art migrate'
 alias v='./vessel'
-alias rewrite-ssh='kubectl exec -n mailerlite -it mailerlite-app-85d5b9d596-gpjlz sh'
+alias rewritessh="kubectl exec -n mailerlite -it $(kubectl get pods -n mailerlite | grep mailerlite-app | head -n 1 |  awk '{print $1;}') sh"
 alias vssh='./vessel exec app bash'
 alias vstopworkers='./vessel exec app supervisorctl stop queuework'
 
-# find in current directory files (recursive)
-gr() {
+# find files which contain a phrase in current directory (recursive)
+containts() {
     grep -r "$*" .;
+}
+
+# find files with a phrase in the name
+somethinglike() {
+    find . -type f -name "*$**"    
 }
 
 # git
