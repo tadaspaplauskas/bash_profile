@@ -55,7 +55,7 @@ alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tada
 alias grecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
 alias ggraph='git log --all --decorate --oneline --graph';
 alias glast='git diff HEAD~ HEAD'
-alias gd='git diff -M'
+alias gd='git add . && git diff --ignore-all-space --find-renames HEAD'
 alias gbd='git checkout master && git branch -D ' # force
 gc () {
     git add . ;
@@ -71,7 +71,7 @@ gb () {
     git push --set-upstream origin "$*";
 }
 
-# personal knowledge management
-alias about='~/Brain/brain.sh'
+# personal knowledge base
+alias kb='~/KB/kb.sh'
 
 export PATH="/usr/local/sbin:$PATH"
