@@ -48,25 +48,25 @@ somethinglike() {
 }
 
 # git
-alias gs='git status'
-alias gstats='git shortlog -sn --since="4 weeks"'
-alias grecap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
-alias gtoday='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
-alias grecent='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
-alias ggraph='git log --all --decorate --oneline --graph';
-alias glast='git diff HEAD~ HEAD'
-alias gd='git add . && git diff --ignore-all-space --find-renames HEAD'
-alias gbd='git checkout master && git branch -D ' # force
-gc () {
+alias s='git status'
+alias stats='git shortlog -sn --since="4 weeks"'
+alias recap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
+alias today='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
+alias branches='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
+alias graph='git log --all --decorate --oneline --graph';
+alias last='git diff HEAD~ HEAD'
+alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
+alias bd='git checkout master && git branch -D ' # force
+c () {
     git add . ;
     git commit -m "$*";
 }
-gp () {
+p () {
     git add . ;
     git commit -m "$*";
     git push;
 }
-gb () {
+b () {
     git checkout -b "$*";
     git push --set-upstream origin "$*";
 }
