@@ -33,10 +33,15 @@ alias a='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 alias lararefresh='v composer install && v npm install && v npm run dev && v art migrate'
 alias v='./vessel'
-alias rewritessh="kubectl exec -n mailerlite -it $(kubectl get pods -n mailerlite | grep mailerlite-app | head -n 1 |  awk '{print $1;}') sh"
-alias vssh='./vessel exec app bash'
+alias ssh-vessel='./vessel exec app bash'
 alias vstopworkers='./vessel exec app supervisorctl stop queuework'
+alias k='kubectl'
 
+ssh-rewrite() {
+    container=`kubectl get pods -n mailerlite | grep mailerlite-app | head -n 1 |  awk '{print $1;}'`
+    kubectl exec -n mailerlite -it "$container" sh
+}
+     
 # find files which contain a phrase in current directory (recursive)
 containts() {
     grep -r "$*" .;
@@ -52,7 +57,7 @@ alias s='git status'
 alias stats='git shortlog -sn --since="4 weeks"'
 alias recap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
 alias today='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
-alias branches='git for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"'
+alias branches='git branch --list'
 alias graph='git log --all --decorate --oneline --graph';
 alias last='git diff HEAD~ HEAD'
 alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
@@ -66,7 +71,7 @@ p () {
     git commit -m "$*";
     git push;
 }
-b () {
+branch () {
     git checkout -b "$*";
     git push --set-upstream origin "$*";
 }
