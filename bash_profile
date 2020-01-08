@@ -15,6 +15,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 export LC_ALL=en_US.UTF-8
 
+shopt -s expand_aliases
 # misc
 alias ls='ls -halp'
 alias ..='cd ..'
@@ -23,13 +24,22 @@ alias rm='echo "rm is disabled, use trash"'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
-alias watch='watch --color'
+# make watch show color and recognize aliases
+alias watch='watch --color --interval 1 '
+# better repeater which doesnt crash with vessel tests
+r() {
+    while true
+    do
+        eval $*;
+        sleep 2;
+    done
+}
 
 # php, laravel
 alias phpunit='php vendor/bin/phpunit'
 alias redis-flush='redis-cli flushall'
 alias phinx='php vendor/bin/phinx'
-alias a='php artisan'
+alias art='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 alias v='./vessel'
 alias k='kubectl'
