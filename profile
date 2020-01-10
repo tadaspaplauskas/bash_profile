@@ -4,15 +4,13 @@ if [ -d "$HOME/platform-tools" ] ; then
 
 # scripts
 # jump to any often visited directory
-bash ~/.bash/z/z.sh
+. ~/.bash/z/z.sh
 
 # config
 export EDITOR=vim
 export CDPATH="~"
-export PS1="\[\033[33;1m\]\W\[\033[m\]\$ "
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
 export LC_ALL=en_US.UTF-8
+PROMPT="%B%F{blue}%1~%f%b %# "
 
 # misc
 alias ls='ls -halp'
