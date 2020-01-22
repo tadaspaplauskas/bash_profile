@@ -6,6 +6,9 @@ if [ -d "$HOME/platform-tools" ] ; then
 # jump to any often visited directory
 source ~/.sh/z/z.sh
 
+# autocomplete git branches and more
+source ~/.sh/git-completion.bash
+
 # config
 export EDITOR=vim
 export CDPATH="~"
