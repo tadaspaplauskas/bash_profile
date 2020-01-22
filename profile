@@ -15,7 +15,6 @@ PROMPT="%B%F{blue}%1~%f%b %# "
 # misc
 alias ls='ls -halp'
 alias ..='cd ..'
-alias weather='curl wttr.in/'
 alias rm='echo "rm is disabled, use trash"'
 alias cp='cp -iv'
 alias mv='mv -iv'
