@@ -1,3 +1,8 @@
+# What's included
+- `Z` to effortlessly jump between often user directories (https://github.com/rupa/z)
+- `git-completion` to autocomplete branch names and more (https://github.com/git/git/blob/master/contrib/completion/git-completion.bash). This deprecated version works faster than zsh one, so I'm keeping it.
+- various aliases for git, php, laravel and general workflows.
+
 # Setup
 
 Read through setup.sh, it's only 3 lines. After you understand what it's doing, just run:
