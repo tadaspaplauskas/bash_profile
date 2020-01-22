@@ -37,14 +37,7 @@ alias phinx='php vendor/bin/phinx'
 alias art='php artisan'
 alias laralogs='tail -n 200 -f storage/logs/laravel.log'
 alias v='./vessel'
-alias k='kubectl'
-alias vt='v test --order-by=defects --stop-on-defect'
 
-ssh-rewrite() {
-    container=`kubectl get pods -n mailerlite | grep mailerlite-app | head -n 1 |  awk '{print $1;}'`
-    kubectl exec -n mailerlite -it "$container" sh
-}
-     
 # find files which contain a phrase in current directory (recursive)
 containts() {
     grep -r "$*" .;
