@@ -1,6 +1,7 @@
 # What's included
 - `Z` to effortlessly jump between often user directories (https://github.com/rupa/z)
 - `git-completion` to autocomplete branch names and more (https://github.com/git/git/blob/master/contrib/completion/git-completion.bash). This deprecated version works faster than zsh one, so I'm keeping it.
+- `kb` script by yours truly. Stores little tidbits of wisdom a generates a simple static page. You have to configure a git repository with a remote in ~/kb to be able to use it.
 - various aliases for git, php, laravel and general workflows.
 
 # Setup

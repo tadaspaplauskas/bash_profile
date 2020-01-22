@@ -9,7 +9,11 @@ source ~/.sh/z/z.sh
 # autocomplete git branches and more
 source ~/.sh/git-completion.bash
 
+# personal knowledge base
+alias kb='~/.sh/kb.sh'
+
 # config
+export PATH="/usr/local/sbin:$PATH"
 export EDITOR=vim
 export CDPATH="~"
 export LC_ALL=en_US.UTF-8
@@ -72,7 +76,3 @@ p () {
     git push;
 }
 
-# personal knowledge base
-alias kb='~/KB/kb.sh'
-
-export PATH="/usr/local/sbin:$PATH"
