@@ -12,11 +12,28 @@ source ~/.sh/git-completion.bash
 # personal knowledge base
 alias kb='~/.sh/kb.sh'
 
+# tldr client https://github.com/raylee/tldr
+alias tldr='~/.sh/tldr/tldr'
+
 # config
 export PATH="/usr/local/sbin:$PATH"
 export EDITOR=vim
 export CDPATH="~"
 export LC_ALL=en_US.UTF-8
+
+# show git branch
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '%b'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+RPROMPT=\$vcs_info_msg_0_
+
+# prompt
 PROMPT="%B%F{blue}%1~%f%b %# "
 
 # misc
@@ -52,7 +69,7 @@ containts() {
 
 # find files with a phrase in the name
 somethinglike() {
-    find . -type f -name "*$**"    
+    find . -type f -name "*$**"
 }
 
 # git
