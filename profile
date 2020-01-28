@@ -21,18 +21,6 @@ export EDITOR=vim
 export CDPATH="~"
 export LC_ALL=en_US.UTF-8
 
-# show git branch
-# Load version control information
-autoload -Uz vcs_info
-precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%b'
-
-# Set up the prompt (with git branch name)
-setopt PROMPT_SUBST
-RPROMPT=\$vcs_info_msg_0_
-
 # prompt
 PROMPT="%B%F{blue}%1~%f%b %# "
 
@@ -73,6 +61,17 @@ somethinglike() {
 }
 
 # git
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '%b'
+
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+RPROMPT=\$vcs_info_msg_0_
+
 alias s='git status'
 alias stats='git shortlog -sn --since="4 weeks"'
 alias recap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
