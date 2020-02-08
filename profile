@@ -32,7 +32,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
 # make watch show color and recognize aliases
-alias watch='watch --color --interval 1 '
+alias watch='watch --color --interval 2 '
 # better repeater which doesnt crash with vessel tests
 r() {
     while true
