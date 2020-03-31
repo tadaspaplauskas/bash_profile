@@ -4,13 +4,13 @@ if [ -d "$HOME/platform-tools" ] ; then
 
 # scripts
 # jump to any often visited directory
-source ~/.shell/z/z.shell
+source ~/.shell/z/z.sh
 
 # autocomplete git branches and more
 source ~/.shell/git-completion.bash
 
 # personal knowledge base
-alias kb='~/.shell/kb.shell'
+alias kb='~/.shell/kb.sh'
 
 # tldr client https://github.com/raylee/tldr
 alias tldr='~/.shell/tldr/tldr'
@@ -81,14 +81,12 @@ alias last='git diff HEAD~ HEAD'
 alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
 alias b='git branch'
 c () {
-    git add . ;
-    git commit -m "$*";
-}
-p () {
     # fix formatting errors if phpcs is setup for the project
     [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
     git add . ;
-    git commit -m "$*";
+    git commit;
+}
+p () {
     git push;
 }
 
