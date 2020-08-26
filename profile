@@ -4,16 +4,10 @@ if [ -d "$HOME/platform-tools" ] ; then
 
 # scripts
 # jump to any often visited directory
-source ~/.shell/z/z.sh
-
-# autocomplete git branches and more
-source ~/.shell/git-completion.bash
+source ~/.sh/z/z.sh
 
 # personal knowledge base
-alias kb='~/.shell/kb.sh'
-
-# tldr client https://github.com/raylee/tldr
-alias tldr='~/.shell/tldr/tldr'
+alias kb='~/.sh/kb.sh'
 
 # config
 export PATH="/usr/local/sbin:$PATH"
@@ -31,6 +25,7 @@ alias rm='echo "rm is disabled, use trash"'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias mkdir='mkdir -pv'
+alias download='curl -O'
 # make watch show color and recognize aliases
 alias watch='watch --color --interval 2 '
 # better repeater which doesnt crash with vessel tests
@@ -82,7 +77,7 @@ alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
 alias b='git branch'
 c () {
     # fix formatting errors if phpcs is setup for the project
-    [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
+    # [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
     git add . ;
     git commit;
 }
