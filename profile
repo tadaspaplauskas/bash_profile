@@ -4,16 +4,16 @@ if [ -d "$HOME/platform-tools" ] ; then
 
 # scripts
 # jump to any often visited directory
-source ~/.shell/z/z.sh
+source ~/.sh/z/z.sh
 
 # autocomplete git branches and more
-source ~/.shell/git-completion.bash
+source ~/.sh/git-completion.bash
 
 # personal knowledge base
-alias kb='~/.shell/kb.sh'
+alias kb='~/.sh/kb.sh'
 
 # tldr client https://github.com/raylee/tldr
-alias tldr='~/.shell/tldr/tldr'
+alias tldr='~/.sh/tldr/tldr'
 
 # config
 export PATH="/usr/local/sbin:$PATH"
