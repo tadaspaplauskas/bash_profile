@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir ~/.shell || exit
+mkdir ~/.sh || exit
 git clone --recurse-submodules https://github.com/tadaspaplauskas/shell_profile.git ~/.sh || exit
-echo ". ~/.shell/profile" >> ~/.zshrc
+echo ". ~/.sh/profile" >> ~/.zshrc
 
