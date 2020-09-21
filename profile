@@ -67,21 +67,26 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
 RPROMPT=\$vcs_info_msg_0_
 
-alias s='git status'
-alias stats='git shortlog -sn --since="4 weeks"'
-alias recap='git log --all --oneline --no-merges --author=tadas@paplauskas.lt'
+# Git helpers
+alias gs='git status'
+alias gd='git add . && git diff --ignore-all-space --find-renames HEAD'
+alias gl='git log --oneline'
 alias today='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
 alias graph='git log --all --decorate --oneline --graph';
 alias last='git diff HEAD~ HEAD'
-alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
-alias b='git branch'
-c () {
+alias gb='git branch'
+gc () {
     # fix formatting errors if phpcs is setup for the project
-    # [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
+    [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
     git add . ;
     git commit;
 }
-p () {
+gp () {
     git push;
 }
 
+# Github helpers
+ghpr() {
+    branch=`git branch --show-current`
+    open "https://github.com/mailerlite/mailerlite/pull/new/$branch"
+}
