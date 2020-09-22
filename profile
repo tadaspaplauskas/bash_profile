@@ -55,7 +55,6 @@ somethinglike() {
     find . -type f -name "*$**"
 }
 
-# git
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -71,20 +70,21 @@ RPROMPT=\$vcs_info_msg_0_
 git config --global branch.autosetupmerge always
 
 # Git helpers
-alias gs='git status'
-alias gd='git add . && git diff --ignore-all-space --find-renames HEAD'
-alias gl='git log --oneline'
+alias s='git status'
+alias d='git add . && git diff --ignore-all-space --find-renames HEAD'
+alias l='git log --oneline'
 alias today='git log --since=00:00:00 --all --no-merges --oneline --author=tadas@paplauskas.lt'
 alias graph='git log --all --decorate --oneline --graph';
 alias last='git diff HEAD~ HEAD'
-alias gb='git branch'
-gc () {
+alias b='git branch'
+c () {
     # fix formatting errors if phpcs is setup for the project
     [ -f vendor/bin/phpcbf ] && vendor/bin/phpcbf app;
     git add . ;
     git commit;
 }
-gp () {
+
+p () {
     git push;
 }
 
