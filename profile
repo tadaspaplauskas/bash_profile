@@ -67,6 +67,9 @@ zstyle ':vcs_info:git:*' formats '%b'
 setopt PROMPT_SUBST
 RPROMPT=\$vcs_info_msg_0_
 
+# Git configuration
+git config --global branch.autosetupmerge always
+
 # Git helpers
 alias gs='git status'
 alias gd='git add . && git diff --ignore-all-space --find-renames HEAD'
@@ -90,3 +93,8 @@ ghpr() {
     branch=`git branch --show-current`
     open "https://github.com/mailerlite/mailerlite/pull/new/$branch"
 }
+
+ghc() {
+    open "https://github.com/mailerlite/mailerlite/commits/$*"
+}
+
