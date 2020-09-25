@@ -55,6 +55,10 @@ somethinglike() {
     find . -type f -name "*$**"
 }
 
+edit () {
+    \ls | grep "$*" | xargs -o vim
+}
+
 # git
 # Load version control information
 autoload -Uz vcs_info
